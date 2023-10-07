@@ -1,4 +1,3 @@
-import 'package:e_krucet/ui/widgets/title_count_row.dart';
 import 'package:flutter/material.dart';
 
 class StudentBatch extends StatefulWidget {
@@ -11,14 +10,11 @@ class StudentBatch extends StatefulWidget {
 class _StudentBatchState extends State<StudentBatch> {
   @override
   Widget build(BuildContext context) {
-    
     double width = MediaQuery.of(context).size.width;
 
     return SingleChildScrollView(
       child: Column(
         children: [
-          TitleCountRow(
-              count: "1500", icon: Icons.group_rounded, title: "Batches"),
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Card(

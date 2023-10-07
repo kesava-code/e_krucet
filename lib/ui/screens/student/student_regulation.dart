@@ -1,4 +1,3 @@
-import 'package:e_krucet/ui/widgets/title_count_row.dart';
 import 'package:flutter/material.dart';
 
 class StudentRegulation extends StatelessWidget {
@@ -11,10 +10,6 @@ class StudentRegulation extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          TitleCountRow(
-              count: "2",
-              icon: Icons.group_rounded,
-              title: "Academic Regulations"),
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Column(

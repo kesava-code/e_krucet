@@ -1,4 +1,4 @@
-import 'package:e_krucet/ui/widgets/title_count_row.dart';
+
 import 'package:flutter/material.dart';
 
 class StudentCaste extends StatelessWidget {
@@ -9,10 +9,7 @@ class StudentCaste extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          TitleCountRow(
-              count: "10",
-              icon: Icons.groups_3_rounded,
-              title: "Castes and Sub-Castes"),
+          
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: ConstrainedBox(

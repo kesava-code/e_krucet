@@ -33,6 +33,7 @@ class StudentDashboard extends StatelessWidget {
         return Scaffold(
           key: scaffoldKey,
           drawer: Drawer(
+            elevation: 10,
             width: 220,
             child: SideNavigationDrawer(
               navigationItemsList: navigationItems,
