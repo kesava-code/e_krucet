@@ -30,7 +30,6 @@ class DashboardCard extends StatelessWidget {
           hoverColor: const Color.fromARGB(255, 252, 252, 252),
           borderRadius: const BorderRadius.all(Radius.circular(10.0)),
           child: Ink(
-            
             decoration: BoxDecoration(
               boxShadow: const [
                 BoxShadow(
@@ -55,6 +54,8 @@ class DashboardCard extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 5, color: Color(backgroundColor)),
                               color: Color(backgroundColor),
                               borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(10))),
@@ -63,6 +64,8 @@ class DashboardCard extends StatelessWidget {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 5, color: Color(backgroundColor)),
                                 color: Color(backgroundColor),
                                 borderRadius: const BorderRadius.only(
                                     topRight: Radius.circular(10))),

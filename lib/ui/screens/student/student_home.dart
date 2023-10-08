@@ -7,6 +7,10 @@ class StudentHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    TextStyle countStyle = Theme.of(context)
+        .primaryTextTheme
+        .titleLarge!
+        .copyWith(color: Theme.of(context).primaryColorDark);
     TextStyle titleStyle = Theme.of(context).textTheme.titleMedium!;
     TextStyle titleLabelStyle = Theme.of(context).textTheme.bodySmall!;
     return SingleChildScrollView(
@@ -39,13 +43,13 @@ class StudentHome extends StatelessWidget {
                       icon: Icons.diversity_1_rounded,
                       subTitle: "2000"),
                   OverviewCard(
-                      title: "Total Branches",
-                      icon: Icons.category_rounded,
-                      subTitle: "4"),
-                  OverviewCard(
                       title: "Total Batches",
                       icon: Icons.people_rounded,
                       subTitle: "6"),
+                  OverviewCard(
+                      title: "Total Branches",
+                      icon: Icons.category_rounded,
+                      subTitle: "4"),
                   OverviewCard(
                       title: "Students Fee Paid",
                       icon: Icons.check_circle_rounded,
@@ -73,19 +77,15 @@ class StudentHome extends StatelessWidget {
                           enableFeedback: true,
                           subtitle: Center(
                               child: Text(
-                            "All pursuing students list",
+                            "2019 | 2020 | 2021 | 2023 Batches",
                             style: titleLabelStyle,
                           )),
                           title: Center(
-                            child: Text('  Batches ', style: titleStyle),
+                            child: Text('Active Batches ', style: titleStyle),
                           ),
                           trailing: Text(
                             "120",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleLarge!
-                                .copyWith(
-                                    color: Theme.of(context).primaryColor),
+                            style: countStyle,
                           ),
                           onTap: () {},
                         ),
@@ -106,32 +106,14 @@ class StudentHome extends StatelessWidget {
                                   children: [
                                     ListTile(
                                       trailing: Text(
-                                        "( 120 )",
-                                        style: titleStyle.copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor),
+                                        "120",
+                                        style: countStyle,
                                       ),
-                                      leading: SizedBox(
-                                        width: 40,
-                                        child: FractionallySizedBox(
-                                          heightFactor: 1,
-                                          child: Ink(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .background,
-                                            child: Center(
-                                              child: Text(
-                                                'iv sem',
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      subtitle: Text('passouts',
+                                      subtitle: Text('IV Semester',
                                           style: titleLabelStyle),
                                       title: Text(
-                                        '2023',
+                                        '2023 - Passouts',
+                                        style: titleStyle,
                                       ),
                                       onTap: () {},
                                     ),
@@ -151,21 +133,7 @@ class StudentHome extends StatelessWidget {
                                       ),
                                       onTap: () {},
                                     ),
-                                    ListTile(
-                                      subtitle: Text(
-                                          'Electronic Communication Engineering',
-                                          style: titleLabelStyle),
-                                      title: Text(
-                                        'ECE',
-                                      ),
-                                      trailing: Text(
-                                        "( 60 )",
-                                        style: titleStyle.copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor),
-                                      ),
-                                      onTap: () {},
-                                    )
+                                    
                                   ],
                                 ),
                               ));

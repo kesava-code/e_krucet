@@ -13,12 +13,13 @@ class OverviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    TextStyle titleStyle = Theme.of(context).textTheme.titleMedium!;
+    TextStyle titleStyle = Theme.of(context).textTheme.titleLarge!;
     TextStyle titleLabelStyle = Theme.of(context).textTheme.bodySmall!;
     return SizedBox(
       child: Card(
         child: Center(
           child: ListTile(
+            iconColor: Theme.of(context).primaryColor,
             contentPadding: EdgeInsets.all(16),
             enableFeedback: true,
             onTap: () {},
