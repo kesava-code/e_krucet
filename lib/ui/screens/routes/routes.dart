@@ -5,6 +5,7 @@ import 'package:e_krucet/ui/screens/student/student_caste.dart';
 import 'package:e_krucet/ui/screens/student/student_dashboard.dart';
 import 'package:e_krucet/ui/screens/student/student_details.dart';
 import 'package:e_krucet/ui/screens/student/student_home.dart';
+import 'package:e_krucet/ui/screens/student/student_profie.dart';
 import 'package:e_krucet/ui/screens/student/student_regulation.dart';
 import 'package:e_krucet/ui/screens/student/student_search.dart';
 import 'package:flutter/material.dart';
@@ -70,9 +71,9 @@ class Routes {
                     },
                   ),
                   GoRoute(
-                    path: "details",
+                    path: "profile",
                     pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentDetails());
+                      return CustomFadeTransition(child: StudentProfile());
                     },
                   ),
                 ])

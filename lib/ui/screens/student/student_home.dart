@@ -1,4 +1,6 @@
+import 'package:e_krucet/data/models/list_card_model.dart';
 import 'package:e_krucet/ui/widgets/Overview_card.dart';
+import 'package:e_krucet/ui/widgets/list_card.dart';
 import 'package:flutter/material.dart';
 
 class StudentHome extends StatelessWidget {
@@ -74,6 +76,7 @@ class StudentHome extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
                         child: ListTile(
+                          
                           enableFeedback: true,
                           subtitle: Center(
                               child: Text(
@@ -81,7 +84,9 @@ class StudentHome extends StatelessWidget {
                             style: titleLabelStyle,
                           )),
                           title: Center(
-                            child: Text('Active Batches ', style: titleStyle),
+                            child: Text('Active Batches ',
+                                style: titleStyle.copyWith(
+                                    fontWeight: FontWeight.bold)),
                           ),
                           trailing: Text(
                             "120",
@@ -101,41 +106,22 @@ class StudentHome extends StatelessWidget {
                                   : width > 700
                                       ? 0.5
                                       : 1,
-                              child: Card(
-                                child: Column(
-                                  children: [
-                                    ListTile(
-                                      trailing: Text(
-                                        "120",
-                                        style: countStyle,
-                                      ),
-                                      subtitle: Text('IV Semester',
-                                          style: titleLabelStyle),
-                                      title: Text(
-                                        '2023 - Passouts',
-                                        style: titleStyle,
-                                      ),
-                                      onTap: () {},
-                                    ),
-                                    ListTile(
-                                      subtitle: Text(
-                                          'Computer Science Engineering' *
-                                              (index + 2),
-                                          style: titleLabelStyle),
-                                      title: Text(
-                                        'CSE',
-                                      ),
-                                      trailing: Text(
-                                        "( 60 )",
-                                        style: titleStyle.copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor),
-                                      ),
-                                      onTap: () {},
-                                    ),
-                                    
-                                  ],
-                                ),
+                              child: ListCard(
+                                listCards: [
+                                  ListCardModel(
+                                      title: "2023 - passouts",
+                                      subtitle: "IV - Semester",
+                                      count: "120"),
+                                  ListCardModel(
+                                      title: "CSE",
+                                      subtitle: "Computer Science Engineering",
+                                      count: "60"),
+                                  ListCardModel(
+                                      title: "ECE",
+                                      subtitle:
+                                          "Electonics and Communication Engineering",
+                                      count: "36")
+                                ],
                               ));
                         })),
                   ),
@@ -182,19 +168,17 @@ class StudentHome extends StatelessWidget {
                             child: ListTile(
                               subtitle: Center(
                                   child: Text(
-                                "pursuing Regulars list",
+                                "2019 | 2020 | 2021 | 2023 Batch students",
                                 style: titleLabelStyle,
                               )),
                               title: Center(
-                                child: Text('Regulars', style: titleStyle),
+                                child: Text('Active Regulars',
+                                    style: titleStyle.copyWith(
+                                        fontWeight: FontWeight.bold)),
                               ),
                               trailing: Text(
-                                "( 120 )",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge!
-                                    .copyWith(
-                                        color: Theme.of(context).primaryColor),
+                                "120",
+                                style: countStyle,
                               ),
                               onTap: () {},
                             ),
@@ -205,87 +189,17 @@ class StudentHome extends StatelessWidget {
                             children: List.generate(4, (index) {
                               return FractionallySizedBox(
                                   widthFactor: width > 700 ? 0.48 : 0.94,
-                                  child: Card(
-                                    child: Column(
-                                      children: [
-                                        ListTile(
-                                          trailing: Text(
-                                            "( 120 )",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleLarge!
-                                                .copyWith(
-                                                    color: Theme.of(context)
-                                                        .primaryColor),
-                                          ),
-                                          subtitle: Center(
-                                            child: Text(
-                                              'passouts ( Regulars )',
-                                              style: TextStyle(
-                                                fontSize: Theme.of(context)
-                                                    .textTheme
-                                                    .labelMedium!
-                                                    .fontSize,
-                                              ),
-                                            ),
-                                          ),
-                                          title: Center(
-                                            child: Text(
-                                              '2023',
-                                            ),
-                                          ),
-                                          onTap: () {},
-                                        ),
-                                        ListTile(
-                                          subtitle: Text(
-                                            'Regulars List' * (index + 2),
-                                            style: TextStyle(
-                                              fontSize: Theme.of(context)
-                                                  .textTheme
-                                                  .labelMedium!
-                                                  .fontSize,
-                                            ),
-                                          ),
-                                          title: Text(
-                                            'CSE',
-                                          ),
-                                          trailing: Text(
-                                            "( 60 )",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleLarge!
-                                                .copyWith(
-                                                    color: Theme.of(context)
-                                                        .primaryColor),
-                                          ),
-                                          onTap: () {},
-                                        ),
-                                        ListTile(
-                                          subtitle: Text(
-                                            'Regulars list',
-                                            style: TextStyle(
-                                              fontSize: Theme.of(context)
-                                                  .textTheme
-                                                  .labelMedium!
-                                                  .fontSize,
-                                            ),
-                                          ),
-                                          title: Text(
-                                            'ECE',
-                                          ),
-                                          trailing: Text(
-                                            "( 60 )",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleLarge!
-                                                .copyWith(
-                                                    color: Theme.of(context)
-                                                        .primaryColor),
-                                          ),
-                                          onTap: () {},
-                                        )
-                                      ],
-                                    ),
+                                  child: ListCard(
+                                    listCards: [
+                                      ListCardModel(
+                                          title: "2019 - Passouts",
+                                          subtitle: "IV - Semester Regulars",
+                                          count: "35"),
+                                      ListCardModel(
+                                          title: "CSE Regulars",
+                                          subtitle: "2019 - passout | iv - sem",
+                                          count: "22")
+                                    ],
                                   ));
                             })),
                         SizedBox(
@@ -306,20 +220,17 @@ class StudentHome extends StatelessWidget {
                               child: ListTile(
                                 subtitle: Center(
                                     child: Text(
-                                  "pursuing Regulars list",
+                                  "2019 | 2020 | 2021 | 2023 Batch students",
                                   style: titleLabelStyle,
                                 )),
                                 title: Center(
-                                  child: Text('Regulars', style: titleStyle),
+                                  child: Text('Active Laterals',
+                                      style: titleStyle.copyWith(
+                                          fontWeight: FontWeight.bold)),
                                 ),
                                 trailing: Text(
-                                  "( 120 )",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .copyWith(
-                                          color:
-                                              Theme.of(context).primaryColor),
+                                  "120",
+                                  style: countStyle,
                                 ),
                                 onTap: () {},
                               ),
@@ -330,87 +241,18 @@ class StudentHome extends StatelessWidget {
                               children: List.generate(4, (index) {
                                 return FractionallySizedBox(
                                     widthFactor: width > 700 ? 0.48 : 0.94,
-                                    child: Card(
-                                      child: Column(
-                                        children: [
-                                          ListTile(
-                                            trailing: Text(
-                                              "( 120 )",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleLarge!
-                                                  .copyWith(
-                                                      color: Theme.of(context)
-                                                          .primaryColor),
-                                            ),
-                                            subtitle: Center(
-                                              child: Text(
-                                                'passouts ( Regulars )',
-                                                style: TextStyle(
-                                                  fontSize: Theme.of(context)
-                                                      .textTheme
-                                                      .labelMedium!
-                                                      .fontSize,
-                                                ),
-                                              ),
-                                            ),
-                                            title: Center(
-                                              child: Text(
-                                                '2023',
-                                              ),
-                                            ),
-                                            onTap: () {},
-                                          ),
-                                          ListTile(
-                                            subtitle: Text(
-                                              'Regulars List' * (index + 2),
-                                              style: TextStyle(
-                                                fontSize: Theme.of(context)
-                                                    .textTheme
-                                                    .labelMedium!
-                                                    .fontSize,
-                                              ),
-                                            ),
-                                            title: Text(
-                                              'CSE',
-                                            ),
-                                            trailing: Text(
-                                              "( 60 )",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleLarge!
-                                                  .copyWith(
-                                                      color: Theme.of(context)
-                                                          .primaryColor),
-                                            ),
-                                            onTap: () {},
-                                          ),
-                                          ListTile(
-                                            subtitle: Text(
-                                              'Regulars list',
-                                              style: TextStyle(
-                                                fontSize: Theme.of(context)
-                                                    .textTheme
-                                                    .labelMedium!
-                                                    .fontSize,
-                                              ),
-                                            ),
-                                            title: Text(
-                                              'ECE',
-                                            ),
-                                            trailing: Text(
-                                              "( 60 )",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleLarge!
-                                                  .copyWith(
-                                                      color: Theme.of(context)
-                                                          .primaryColor),
-                                            ),
-                                            onTap: () {},
-                                          )
-                                        ],
-                                      ),
+                                    child: ListCard(
+                                      listCards: [
+                                        ListCardModel(
+                                            title: "2019 - Passouts",
+                                            subtitle: "IV - Semester Laterals",
+                                            count: "35"),
+                                        ListCardModel(
+                                            title: "ECE Laterals",
+                                            subtitle:
+                                                "2019 - passout | iv - sem",
+                                            count: "22")
+                                      ],
                                     ));
                               })),
                           SizedBox(
