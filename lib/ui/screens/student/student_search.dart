@@ -1,4 +1,6 @@
+import 'package:e_krucet/logic/cubit/navigation_index_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StudentSearch extends StatefulWidget {
   const StudentSearch({super.key});
@@ -29,6 +31,7 @@ class _StudentSearchState extends State<StudentSearch> {
 
   @override
   Widget build(BuildContext context) {
+   
     double width = MediaQuery.of(context).size.width;
     return Column(
       children: [

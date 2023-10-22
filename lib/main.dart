@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.brown,
+
         fontFamily: "nunito",
         appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(
@@ -108,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisExtent: 200),
               children: const [
                 DashboardCard(
-                    route: '/student',
+                    route: '/student/home',
                     backgroundColor: 0XFFcd9d77,
                     description:
                         "View, Add, Delete, and Update Student Details (RegisterId, Name, Email, Mobile, Branch, etc..)",

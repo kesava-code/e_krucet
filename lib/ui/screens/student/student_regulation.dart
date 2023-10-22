@@ -1,10 +1,16 @@
+import 'package:e_krucet/logic/cubit/navigation_index_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StudentRegulation extends StatelessWidget {
   const StudentRegulation({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<NavigationIndexCubit>(context).change(
+        BlocProvider.of<NavigationIndexCubit>(context)
+            .navigationItems["regulation"]!
+            .index);
     double width = MediaQuery.of(context).size.width;
 
     return SingleChildScrollView(

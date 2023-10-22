@@ -1,13 +1,21 @@
+import 'dart:math';
+
 import 'package:e_krucet/data/models/list_card_model.dart';
+import 'package:e_krucet/logic/cubit/navigation_index_cubit.dart';
 import 'package:e_krucet/ui/widgets/Overview_card.dart';
 import 'package:e_krucet/ui/widgets/list_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StudentHome extends StatelessWidget {
   const StudentHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<NavigationIndexCubit>(context).change(
+        BlocProvider.of<NavigationIndexCubit>(context)
+            .navigationItems["home"]!
+            .index);
     double width = MediaQuery.of(context).size.width;
     TextStyle countStyle = Theme.of(context)
         .primaryTextTheme
@@ -15,6 +23,7 @@ class StudentHome extends StatelessWidget {
         .copyWith(color: Theme.of(context).primaryColorDark);
     TextStyle titleStyle = Theme.of(context).textTheme.titleMedium!;
     TextStyle titleLabelStyle = Theme.of(context).textTheme.bodySmall!;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -38,12 +47,12 @@ class StudentHome extends StatelessWidget {
               width: double.infinity,
               child: Wrap(
                 runAlignment: WrapAlignment.center,
-                alignment: WrapAlignment.spaceEvenly,
+                alignment: WrapAlignment.spaceAround,
                 children: [
                   OverviewCard(
                       title: "Total Students",
                       icon: Icons.diversity_1_rounded,
-                      subTitle: "2000"),
+                      subTitle: Random().nextInt(3000).toString()),
                   OverviewCard(
                       title: "Total Batches",
                       icon: Icons.people_rounded,
@@ -76,7 +85,6 @@ class StudentHome extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Card(
                         child: ListTile(
-                          
                           enableFeedback: true,
                           subtitle: Center(
                               child: Text(

@@ -1,15 +1,19 @@
-
+import 'package:e_krucet/logic/cubit/navigation_index_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StudentCaste extends StatelessWidget {
   const StudentCaste({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<NavigationIndexCubit>(context).change(
+        BlocProvider.of<NavigationIndexCubit>(context)
+            .navigationItems["caste"]!
+            .index);
     return SingleChildScrollView(
       child: Column(
         children: [
-          
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: ConstrainedBox(

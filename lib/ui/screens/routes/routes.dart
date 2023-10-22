@@ -18,70 +18,86 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
 
 class Routes {
   static final GoRouter router = GoRouter(
-    navigatorKey: _rootNavigatorKey,
-    initialLocation: '/',
-    debugLogDiagnostics: true,
-    routes: <RouteBase>[
-      GoRoute(
-        path: '/',
-        builder: (context, state) =>
-            const MyHomePage(title: 'E - KRUCET Dashboard'),
-      ),
+      debugLogDiagnostics: true,
+      navigatorKey: _rootNavigatorKey,
+      initialLocation: '/',
+      routes: <RouteBase>[
+        GoRoute(
+          path: '/',
+          builder: (context, state) =>
+              const MyHomePage(title: 'E - KRUCET Dashboard'),
+        ),
+        ShellRoute(
+            navigatorKey: _shellNavigatorKey,
+            pageBuilder: (context, state, child) {
+              return CustomFadeTransition(
+                  child: StudentDashboard(child: child));
+            },
+            routes: [
+              GoRoute(
+                  path: "/student",
+                  pageBuilder: (context, state) {
+                    return CustomFadeTransition(
+                        child: Center(
+                            child: Text(
+                      "STUDENT PORTAL",
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    )));
+                  },
+                  routes: [
+                    GoRoute(
+                      path: "home",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(child: const StudentHome());
+                      },
+                    ),
+                    GoRoute(
+                      path: "batch",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(
+                            child: const StudentBatch());
+                      },
+                    ),
+                    GoRoute(
+                      path: "branch",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(
+                            child: const StudentBranch());
+                      },
+                    ),
+                    GoRoute(
+                      path: "regulation",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(
+                            child: const StudentRegulation());
+                      },
+                    ),
+                    GoRoute(
+                      path: "caste",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(
+                            child: const StudentCaste());
+                      },
+                    ),
+                    GoRoute(
+                      path: "search",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(
+                            child: const StudentSearch());
+                      },
+                    ),
+                    GoRoute(
+                      path: "profile",
+                      pageBuilder: (context, state) {
+                        return CustomFadeTransition(
+                            child: const StudentProfile());
+                      },
+                    ),
+                  ]),
+            ])
+      ]);
 
-      ShellRoute(
-          navigatorKey: _shellNavigatorKey,
-          pageBuilder: (context, state, child) {
-            return CustomFadeTransition(child: StudentDashboard(child: child));
-          },
-          routes: [
-            GoRoute(
-                path: '/student',
-                pageBuilder: (context, state) {
-                  return CustomFadeTransition(child: StudentHome());
-                },
-                routes: [
-                  GoRoute(
-                    path: "batch",
-                    pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentBatch());
-                    },
-                  ),
-                  GoRoute(
-                    path: "branch",
-                    pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentBranch());
-                    },
-                  ),
-                  GoRoute(
-                    path: "regulation",
-                    pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentRegulation());
-                    },
-                  ),
-                  GoRoute(
-                    path: "caste",
-                    pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentCaste());
-                    },
-                  ),
-                  GoRoute(
-                    path: "search",
-                    pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentSearch());
-                    },
-                  ),
-                  GoRoute(
-                    path: "profile",
-                    pageBuilder: (context, state) {
-                      return CustomFadeTransition(child: StudentProfile());
-                    },
-                  ),
-                ])
-          ])
-
-      /// Application shell
-    ],
-  );
+  /// Appl
 }
 
 class CustomFadeTransition extends CustomTransitionPage<void> {
@@ -89,10 +105,7 @@ class CustomFadeTransition extends CustomTransitionPage<void> {
       : super(
           transitionDuration: const Duration(milliseconds: 0),
           transitionsBuilder: (_, animation, __, child) {
-            return FadeTransition(
-              opacity: CurveTween(curve: Curves.easeIn).animate(animation),
-              child: child,
-            );
+            return child;
           },
         );
 }

@@ -1,28 +1,22 @@
+import 'dart:developer';
+
 import 'package:e_krucet/logic/cubit/navigation_index_cubit.dart';
 import 'package:e_krucet/ui/widgets/side_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class StudentDashboard extends StatelessWidget {
-  StudentDashboard({super.key, required this.child});
+class StudentDashboard extends StatefulWidget {
+  const StudentDashboard({super.key, required this.child});
   final Widget child;
 
-  final TextEditingController searchController = TextEditingController();
+  @override
+  State<StudentDashboard> createState() => _StudentDashboardState();
+}
 
-  final List<List<dynamic>> navigationItems = [
-    ['Home', const Icon(Icons.home_rounded), "/student"],
-    ['Student', const Icon(Icons.person_search), "/student/search"],
-    ['Batch', const Icon(Icons.people_rounded), "/student/batch"],
-    ['Branch', const Icon(Icons.category_rounded), "/student/branch"],
-    ['Regulation', const Icon(Icons.book_rounded), "/student/regulation"],
-    ['Gender', const Icon(Icons.transgender_rounded), "/student"],
-    ['Scholarship', const Icon(Icons.school_rounded), "/student"],
-    ['Caste', const Icon(Icons.groups_3_rounded), "/student/caste"],
-    ['Upload', const Icon(Icons.file_upload_rounded), "#"],
-    ["Promote", const Icon(Icons.celebration), "#"],
-    ['Logout', const Icon(Icons.logout_rounded), "/student"]
-  ];
+class _StudentDashboardState extends State<StudentDashboard> {
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +29,7 @@ class StudentDashboard extends StatelessWidget {
           drawer: Drawer(
             elevation: 10,
             width: 220,
-            child: SideNavigationDrawer(
-              navigationItemsList: navigationItems,
-            ),
+            child: SideNavigationDrawer(),
           ),
           endDrawer: Drawer(),
           appBar: AppBar(
@@ -96,33 +88,38 @@ class StudentDashboard extends StatelessWidget {
                 );
               })
             ],
-            title: Row(
-              children: [
-                ConstrainedBox(
-                  constraints: BoxConstraints.loose(const Size(50, 50)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Image.asset(
-                      "lib/images/krucet.png",
-                      height: 40,
-                      fit: BoxFit.fitHeight,
+            title: TextButton(
+              onPressed: (() {
+                GoRouter.of(context).go("/");
+              }),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ConstrainedBox(
+                    constraints: BoxConstraints.loose(const Size(50, 50)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Image.asset(
+                        "lib/images/krucet.png",
+                        height: 40,
+                        fit: BoxFit.fitHeight,
+                      ),
                     ),
                   ),
-                ),
-                const Text(
-                  "Krishna University",
-                ),
-              ],
+                  const Text(
+                    "Krishna University",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
           ),
           body: SafeArea(
             child: Center(
               child: Row(children: [
-                SideNavigationRail(
-                  navigationItemsList: navigationItems.sublist(0, 4),
-                ),
+                const SideNavigationRail(),
                 Expanded(
-                  child: child,
+                  child: widget.child,
                 )
               ]),
             ),
