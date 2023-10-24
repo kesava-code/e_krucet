@@ -7,7 +7,7 @@ class StudentProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    TextStyle titleStyle = Theme.of(context)
+    TextStyle titleBoldStyle = Theme.of(context)
         .textTheme
         .titleMedium!
         .copyWith(fontWeight: FontWeight.bold);
@@ -48,7 +48,7 @@ class StudentProfile extends StatelessWidget {
                                   Text(
                                     "Moganti Mohan Kesava",
                                     textAlign: TextAlign.center,
-                                    style: titleStyle,
+                                    style: titleBoldStyle,
                                   ),
                                   SizedBox(
                                     height: 10,
@@ -72,7 +72,7 @@ class StudentProfile extends StatelessWidget {
                                     children: [
                                       Text(
                                         "Fee Info",
-                                        style: titleStyle,
+                                        style: titleBoldStyle,
                                       ),
                                       SizedBox(
                                         width: 4,
@@ -130,12 +130,19 @@ class StudentProfile extends StatelessWidget {
                                     text: TextSpan(children: [
                                       const TextSpan(text: "Paid:"),
                                       TextSpan(
-                                          text: " 2200 ", style: titleStyle),
-                                      const TextSpan(text: "| Due:"),
-                                      TextSpan(text: " 0 ", style: titleStyle),
+                                          text: " 2200 ",
+                                          style: titleBoldStyle),
+                                      const TextSpan(text: "| Outstanding:"),
+                                      TextSpan(
+                                          text: " 0 ", style: titleBoldStyle),
+                                      const TextSpan(text: "| Deferred:"),
+                                      TextSpan(
+                                          text: " 2000 ",
+                                          style: titleBoldStyle),
                                       const TextSpan(text: "| Total:"),
                                       TextSpan(
-                                          text: " 2200 ", style: titleStyle),
+                                          text: " 2400 ",
+                                          style: titleBoldStyle),
                                     ]),
                                   ),
                                   SizedBox(
@@ -148,7 +155,7 @@ class StudentProfile extends StatelessWidget {
                                     children: [
                                       Text(
                                         "More Info",
-                                        style: titleStyle,
+                                        style: titleBoldStyle,
                                       ),
                                       SizedBox(
                                         width: 4,
@@ -420,7 +427,7 @@ class StudentProfile extends StatelessWidget {
                                     children: [
                                       Text(
                                         "Contact Info",
-                                        style: titleStyle,
+                                        style: titleBoldStyle,
                                       ),
                                       SizedBox(
                                         width: 4,
@@ -462,7 +469,7 @@ class StudentProfile extends StatelessWidget {
                                             horizontal: 10.0),
                                         child: Text(
                                           "Address",
-                                          style: titleStyle,
+                                          style: titleBoldStyle,
                                         ),
                                       ),
                                       Expanded(child: Divider()),
@@ -483,7 +490,7 @@ class StudentProfile extends StatelessWidget {
                                             horizontal: 10.0),
                                         child: Text(
                                           "Social Profile",
-                                          style: titleStyle,
+                                          style: titleBoldStyle,
                                         ),
                                       ),
                                       Expanded(child: Divider()),
@@ -534,7 +541,7 @@ class StudentProfile extends StatelessWidget {
                                     children: [
                                       Text(
                                         "Result & Attendance",
-                                        style: titleStyle,
+                                        style: titleBoldStyle,
                                       ),
                                       SizedBox(
                                         width: 4,
@@ -551,7 +558,7 @@ class StudentProfile extends StatelessWidget {
                                   Row(
                                     children: [
                                       Expanded(child: SizedBox()),
-                                      Text(" 9.0 ", style: titleStyle),
+                                      Text(" 9.0 ", style: titleBoldStyle),
                                       SizedBox(
                                         width: 5,
                                       ),
@@ -566,7 +573,7 @@ class StudentProfile extends StatelessWidget {
                                       ),
                                       Text(
                                         "99%",
-                                        style: titleStyle,
+                                        style: titleBoldStyle,
                                       ),
                                       SizedBox(
                                         width: 5,
@@ -583,7 +590,7 @@ class StudentProfile extends StatelessWidget {
                                             horizontal: 10.0),
                                         child: Text(
                                           "SGPA & Attendance",
-                                          style: titleStyle,
+                                          style: titleBoldStyle,
                                         ),
                                       ),
                                       Expanded(child: Divider()),

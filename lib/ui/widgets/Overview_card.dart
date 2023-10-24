@@ -4,7 +4,7 @@ class OverviewCard extends StatelessWidget {
   final String title;
   final String subTitle;
   final IconData icon;
-  OverviewCard(
+  const OverviewCard(
       {super.key,
       required this.title,
       required this.icon,
@@ -12,7 +12,6 @@ class OverviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     TextStyle titleStyle = Theme.of(context).textTheme.titleLarge!;
     TextStyle titleLabelStyle = Theme.of(context).textTheme.bodySmall!;
     return SizedBox(
@@ -40,7 +39,6 @@ class OverviewCard extends StatelessWidget {
           ),
         ),
       ),
-      width: width <= 375 ? double.infinity : 205,
       height: 100,
     );
   }
